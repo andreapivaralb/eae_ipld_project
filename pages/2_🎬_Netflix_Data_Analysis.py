@@ -53,7 +53,13 @@ max_year = movies_df['release_year'].max()
 num_missing_directors = movies_df['director'].isnull().sum() 
 
 # TODO: Ex 2.4: How many different countries are there in the data?
-n_countries = None
+movies_df["country"].fillna("Unknown", inplace=True)
+country_list = movies_df["country"].tolist()
+join_countr = ", ".join(country_list)
+split_countr = join_countr.split(", ")
+unique_countr = set(split_countr)
+
+n_countries = len(unique_countr)
 
 # TODO: Ex 2.5: How many characters long are on average the title names?
 
@@ -90,7 +96,9 @@ if not top_10_countries.empty:
     ax.pie(top_10_countries, labels=top_10_countries.index, autopct="%.2f%%", startangle=90)
     ax.set_title(f"Top 10 Countries in {year}")
 
+    # Adjust layout to prevent overlap
     st.pyplot(fig)
+    st.text("")  # Adding an empty text to create some space
 else:
     st.subheader("⚠️ No data available for the selected year.")
 
@@ -114,7 +122,9 @@ if movies_avg_duration_per_year is not None:
     ax.set_xlabel("Release Year")
     ax.set_ylabel("Average Duration (minutes)")
 
+    # Adjust layout to prevent overlap
     st.pyplot(fig)
+    st.text("")  # Adding an empty text to create some space
 else:
     st.subheader("⚠️ No data available for average movie duration.")
 
