@@ -51,19 +51,24 @@ st.subheader("About Me")
 
 # TODO: Modify and adapt the following lines to your info, you can add or remove some details if you want
 st.write("""
-- 🧑‍💻 I am a <Current Role and/or Studies> 
+- 🧑‍💻 Currently pursuing a Masters in Data Analysis and a Clinical Psychologist.
 
-- 🛩️ prev: <Previous Experience, Background or Studies>
+- 🌐 Diverse background in linguistics, instructional design, behavioral sciences, and animal behavior.
 
-- ❤️ <Your Passion and/or Interests>
+- 🌍 Worked in various fields including English teaching, translation, and multinational companies.
 
-- 🤖 <Your Personal Projects>
+- 🎨 Enthusiast of art, museums, and exploring new cultures.
 
-- 🏂 <Your Hobbies>
+- 🛼 Passionate about rollerskating and dog training.
 
-- 📫 How to reach me: <Your Email>
+- 🤔 A mysterious soul with a love for insightful conversations.
 
-- 🏠 Barcelona
+- ✉️ Reach me at andrea.pivaral.b@gmail.com
+
+- 🏠 Based in Barcelona.
+
+- 🔗 Connect with me on [LinkedIn](https://www.linkedin.com/in/andrea-pivaral-46299312a/).
 """)
+
 
 # Feel free to add other points like your Linkedin, Github, Social Media, etc.
