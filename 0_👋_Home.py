@@ -51,15 +51,13 @@ st.subheader("About Me")
 
 # TODO: Modify and adapt the following lines to your info, you can add or remove some details if you want
 st.write("""
-- 🧑‍💻 Currently pursuing a Masters in Data Analysis and a Clinical Psychologist.
+- 🧑‍💻 Clinical Psychologist currently pursuing a Masters in Data Analysis.
 
-- 🌐 Diverse background in linguistics, instructional design, behavioral sciences, and animal behavior.
-
-- 🌍 Worked in various fields including English teaching, translation, and multinational companies.
+- 🌐 Diverse background in behavioral sciences, linguistics and instructional design.
+         
+- 🤖 Currently working on personal projects related to data analysis and its applications in psychology.
 
 - 🎨 Enthusiast of art, museums, and exploring new cultures.
-
-- 🛼 Passionate about rollerskating and dog training.
 
 - ✨ A mystic soul with a love for insightful conversations.
 
