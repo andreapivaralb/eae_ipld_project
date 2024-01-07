@@ -54,7 +54,6 @@ with st.expander("Check the complete dataset:"):
 
 temps_df["AvgTemperatureCelsius"] = ((temps_df["AvgTemperatureFahrenheit"] - 32) * 5/9)  # TODO: uncomment this line to complete it
 
-temps_df
 
 # ----- Extracting some basic information from the dataset -----
 
