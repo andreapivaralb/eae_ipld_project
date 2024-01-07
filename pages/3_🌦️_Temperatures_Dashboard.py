@@ -78,6 +78,29 @@ max_temp_date = temps_df.loc[temps_df['AvgTemperatureCelsius'].idxmin(), 'Date']
 
 
 # ----- Displaying the extracted information metrics -----
+city = "Munich"
+start_date = pd.to_datetime("2008-01-01").date()
+end_date = pd.to_datetime("2010-12-31").date()
+
+city_df = temps_df[temps_df["City"] == city]
+city_df_period = city_df[(city_df["Date"] >= start_date) & (city_df["Date"] <= end_date)]
+
+plt.figure(figsize=(10, 5))
+
+
+plt.plot(city_df_period["Date"], city_df_period["AvgTemperatureCelsius"], label=f"{city} Temperatures")
+plt.title(f"Temperature Trend in {city} ({start_date} to {end_date})")
+plt.xlabel("Date")
+plt.ylabel("Temperature (°C)")
+plt.legend()
+plt.show()
+
+plt.figure(figsize=(10, 5))
+plt.hist(city_df_period["AvgTemperatureCelsius"], bins=20, color='blue', alpha=0.7)
+plt.title(f"Temperature Distribution in {city} ({start_date} to {end_date})")
+plt.xlabel("Temperature (°C)")
+plt.ylabel("Frequency")
+plt.show()
 
 st.write("##")
 st.header("Basic Information")
@@ -111,6 +134,37 @@ else:
 
 
 # ----- Plotting the temperatures over time for the selected cities -----
+
+selected_cities = ["Munich", "Buenos Aires", "Tokyo"]
+start_date = pd.to_datetime("2008-01-01").date()
+end_date = pd.to_datetime("2010-12-31").date()
+
+plt.figure(figsize=(15, 5))
+
+for city in selected_cities:
+    city_df = temps_df[temps_df["City"] == city]
+    city_df_period = city_df[(city_df["Date"] >= start_date) & (city_df["Date"] <= end_date)]
+    plt.plot(city_df_period["Date"], city_df_period["AvgTemperatureCelsius"], label=city)
+
+plt.title(f"Temperature Trend in Selected Cities ({start_date} to {end_date})")
+plt.xlabel("Date")
+plt.ylabel("Temperature (°C)")
+plt.legend()
+plt.show()
+
+plt.figure(figsize=(15, 5))
+
+for city in selected_cities:
+    city_df = temps_df[temps_df["City"] == city]
+    city_df_period = city_df[(city_df["Date"] >= start_date) & (city_df["Date"] <= end_date)]
+    plt.hist(city_df_period["AvgTemperatureCelsius"], bins=20, alpha=0.7, label=city)
+
+plt.title(f"Temperature Distribution in Selected Cities ({start_date} to {end_date})")
+plt.xlabel("Temperature (°C)")
+plt.ylabel("Frequency")
+plt.legend()
+
+plt.show()
 
 st.write("##")
 st.header("Comparing the Temperatures of the Cities")
