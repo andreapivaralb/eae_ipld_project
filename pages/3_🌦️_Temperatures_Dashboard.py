@@ -8,7 +8,7 @@ import streamlit as st
 
 # ----- Page configs -----
 st.set_page_config(
-    page_title="<Your Name> Portfolio",
+    page_title="Andrea's Portfolio",
     page_icon="📊",
 )
 
@@ -63,12 +63,12 @@ temps_df
 unique_countries_list = temps_df["City"].unique()
 
 # TODO: Ex 3.4: Which are the minimum and maximum dates?
-min_date = min(temps_df["Date"]) 
+min_date = min(temps_df["Date"])
 max_date = max(temps_df["Date"])
 
 # TODO:  Ex 3.5: What are the global minimum and maximum temperatures? Find the city and the date of each of them.
-min_temp = min(temps_df['AvgTemperatureCelsius'])
-max_temp = max(temps_df['AvgTemperatureCelsius'])
+min_temp = min(temps_df['AvgTemperatureCelsius']) 
+max_temp = max(temps_df['AvgTemperatureCelsius']) 
 
 min_temp_city = temps_df.loc[temps_df['AvgTemperatureCelsius'].idxmin(), 'City']
 min_temp_date = temps_df.loc[temps_df['AvgTemperatureCelsius'].idxmin(), 'Date']
@@ -78,29 +78,6 @@ max_temp_date = temps_df.loc[temps_df['AvgTemperatureCelsius'].idxmin(), 'Date']
 
 
 # ----- Displaying the extracted information metrics -----
-city = "Munich"
-start_date = pd.to_datetime("2008-01-01").date()
-end_date = pd.to_datetime("2010-12-31").date()
-
-city_df = temps_df[temps_df["City"] == city]
-city_df_period = city_df[(city_df["Date"] >= start_date) & (city_df["Date"] <= end_date)]
-
-plt.figure(figsize=(10, 5))
-
-
-plt.plot(city_df_period["Date"], city_df_period["AvgTemperatureCelsius"], label=f"{city} Temperatures")
-plt.title(f"Temperature Trend in {city} ({start_date} to {end_date})")
-plt.xlabel("Date")
-plt.ylabel("Temperature (°C)")
-plt.legend()
-plt.show()
-
-plt.figure(figsize=(10, 5))
-plt.hist(city_df_period["AvgTemperatureCelsius"], bins=20, color='blue', alpha=0.7)
-plt.title(f"Temperature Distribution in {city} ({start_date} to {end_date})")
-plt.xlabel("Temperature (°C)")
-plt.ylabel("Frequency")
-plt.show()
 
 st.write("##")
 st.header("Basic Information")
@@ -135,37 +112,6 @@ else:
 
 # ----- Plotting the temperatures over time for the selected cities -----
 
-selected_cities = ["Munich", "Buenos Aires", "Tokyo"]
-start_date = pd.to_datetime("2008-01-01").date()
-end_date = pd.to_datetime("2010-12-31").date()
-
-plt.figure(figsize=(15, 5))
-
-for city in selected_cities:
-    city_df = temps_df[temps_df["City"] == city]
-    city_df_period = city_df[(city_df["Date"] >= start_date) & (city_df["Date"] <= end_date)]
-    plt.plot(city_df_period["Date"], city_df_period["AvgTemperatureCelsius"], label=city)
-
-plt.title(f"Temperature Trend in Selected Cities ({start_date} to {end_date})")
-plt.xlabel("Date")
-plt.ylabel("Temperature (°C)")
-plt.legend()
-plt.show()
-
-plt.figure(figsize=(15, 5))
-
-for city in selected_cities:
-    city_df = temps_df[temps_df["City"] == city]
-    city_df_period = city_df[(city_df["Date"] >= start_date) & (city_df["Date"] <= end_date)]
-    plt.hist(city_df_period["AvgTemperatureCelsius"], bins=20, alpha=0.7, label=city)
-
-plt.title(f"Temperature Distribution in Selected Cities ({start_date} to {end_date})")
-plt.xlabel("Temperature (°C)")
-plt.ylabel("Frequency")
-plt.legend()
-
-plt.show()
-
 st.write("##")
 st.header("Comparing the Temperatures of the Cities")
 
@@ -190,13 +136,13 @@ if unique_countries_list is not None and len(selected_cities) > 0:
 
     fig = plt.figure(figsize=(10, 5))
 
-    # for city in selected_cities:
-    #     city_df = None            # TODO
-    #     city_df_period = None     # TODO
-    #     plt.plot()                # TODO 
-    # plt.title()   # TODO
-    # plt.xlabel()  # TODO
-    # plt.ylabel()  # TODO
+    for city in selected_cities:
+        city_df = temps_df[temps_df["City"] == city]            # TODO
+        city_df_period = city_df[(city_df["Date"] >= start_date) & (city_df["Date"] <= end_date)]     # TODO
+        plt.plot(city_df_period["Date"], city_df_period["AvgTemperatureCelsius"], label=city)                # TODO 
+        plt.title(f"Temperature Trend in Selected Cities ({start_date} to {end_date})")   # TODO
+        plt.xlabel("Date")  # TODO
+        plt.ylabel("Temperature (°C)")  # TODO
 
     plt.legend()
     
@@ -209,14 +155,14 @@ if unique_countries_list is not None and len(selected_cities) > 0:
 
     fig = plt.figure(figsize=(10, 5))
 
-    # for city in selected_cities:
-    #     city_df = None            # TODO
-    #     city_df_period = None     # TODO
-    #     plt.hist()                # TODO
-
-    # plt.title()   # TODO
-    # plt.xlabel()  # TODO
-    # plt.ylabel()  # TODO
+    for city in selected_cities:
+        city_df = temps_df[temps_df["City"] == city]            # TODO
+        city_df_period = city_df[(city_df["Date"] >= start_date) & (city_df["Date"] <= end_date)]     # TODO
+        plt.hist(city_df_period["AvgTemperatureCelsius"], bins=20, alpha=0.7, label=city)                # TODO
+        
+        plt.title(f"Temperature Distribution in Selected Cities ({start_date} to {end_date})")   # TODO
+        plt.xlabel("Temperature (°C)")  # TODO
+        plt.ylabel("Frequency")  # TODO
 
     plt.legend()
 
