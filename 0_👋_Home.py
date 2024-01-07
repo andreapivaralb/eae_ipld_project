@@ -61,7 +61,7 @@ st.write("""
 
 - 🛼 Passionate about rollerskating and dog training.
 
-- 🤔 A mysterious soul with a love for insightful conversations.
+- ✨ A mystic soul with a love for insightful conversations.
 
 - ✉️ Reach me at andrea.pivaral.b@gmail.com
 
